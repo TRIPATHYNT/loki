@@ -98,15 +98,15 @@ def doRpcServer(port, stopTimeSec):
 def doRpcClientToPythonSvc(port):
     address = msgpackrpc.Address('127.0.0.1', port)
     client = msgpackrpc.Client(address, unpack_encoding='utf-8')
-    print client.call("Echo123", "A1", "B2", "C3")
-    print client.call("EchoStruct", {"A" :"Aa", "B":"Bb", "C":"Cc"})
+    print (client.call("Echo123", "A1", "B2", "C3"))
+    print (client.call("EchoStruct", {"A" :"Aa", "B":"Bb", "C":"Cc"}))
    
 def doRpcClientToGoSvc(port):
     # print ">>>> port: ", port, " <<<<<"
     address = msgpackrpc.Address('127.0.0.1', port)
     client = msgpackrpc.Client(address, unpack_encoding='utf-8')
-    print client.call("TestRpcInt.Echo123", ["A1", "B2", "C3"])
-    print client.call("TestRpcInt.EchoStruct", {"A" :"Aa", "B":"Bb", "C":"Cc"})
+    print (client.call("TestRpcInt.Echo123", ["A1", "B2", "C3"]))
+    print (client.call("TestRpcInt.EchoStruct", {"A" :"Aa", "B":"Bb", "C":"Cc"}))
 
 def doMain(args):
     if len(args) == 2 and args[0] == "testdata":
